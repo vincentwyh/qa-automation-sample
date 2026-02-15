@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  feedback-db:
+    image: 'postgres:14'
+    env_file:
+      - .env
+    volumes:
+      - feedback-db-data:/var/lib/postgresql/data
+    ports:
+      - '5477:5432'
+    networks:
+      - feedback-net
+
+networks:
+  feedback-net:
+
+volumes:
+  feedback-db-data:
